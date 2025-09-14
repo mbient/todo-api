@@ -10,7 +10,7 @@ func TaskRouter() *gin.Engine {
 
 	v1 := router.Group("api/v1")
 	{
-		v1.GET("/tasks", controllers.GetTaskByID)
+		v1.GET("/tasks", controllers.GetTask)
 		v1.GET("/tasks/:id", controllers.GetTaskByID)
 		v1.POST("/tasks", controllers.AddTask)
 		v1.PUT("/tasks/:id", controllers.UpdateTask)
