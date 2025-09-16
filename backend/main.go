@@ -9,6 +9,8 @@ import (
 
 func init() {
 	initializers.ConnectToDb()
+	initializers.SyncDb()
+	initializers.FillDb()
 }
 
 func main() {

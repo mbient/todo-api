@@ -6,10 +6,13 @@ import (
 	"gorm.io/gorm"
 )
 
+var DB *gorm.DB
+
 func ConnectToDb() {
-	_, err := gorm.Open(sqlite.Open("todo-list.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("todo-list.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
 	fmt.Println("successfully connected to the database")
+	DB = db
 }
