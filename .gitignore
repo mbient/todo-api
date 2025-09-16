@@ -1,0 +1,7 @@
+*.exe
+*.test
+*.out
+*.db
+*.log
+*.tmp
+*.swp
