@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/mbient/todo-api/initializers"
 	"github.com/mbient/todo-api/models"
+	"github.com/mbient/todo-api/utils"
 
 	"net/http"
 )
@@ -26,10 +27,12 @@ func SignUp(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "user already exists"})
 		return
 	}
-
-	//TODO Hash user password
-
-	// Create new user
+	var errHash error
+	input.Password, errHash = utils.GenerateHashPassword(input.Password)
+	if errHash != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "could not generate password hash"})
+		return
+	}
 	user := models.User{
 		Name:     input.Name,
 		Email:    input.Email,
