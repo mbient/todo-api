@@ -45,7 +45,29 @@ func SignUp(c *gin.Context) {
 }
 
 func LogIn(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "Login Called"})
+	//TODO parse request
+	var user models.User
+	if err := c.ShouldBindJSON(&user); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	//TODO check if user exists
+	var existingUser models.User
+	initializers.DB.Where("email = ?", user.Email).First(&existingUser)
+	if existingUser.ID == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "wrong user or password"})
+		return
+	}
+	//TODO compare password
+	errHash := utils.CompareHashPassword(user.Password, existingUser.Password)
+	if !errHash {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "wrong user or password"})
+	}
+	//TODO Generate JWT
+	//
+	//TODO Return token
+
+	c.JSON(http.StatusOK, gin.H{"success": "user logged in"})
 }
 
 func LogOut(c *gin.Context) {
