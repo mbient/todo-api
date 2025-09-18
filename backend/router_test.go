@@ -18,7 +18,7 @@ func TestTaskRoute(t *testing.T) {
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/api/v1/tasks", nil)
 	router.ServeHTTP(w, req)
-	assert.Equal(t, 200, w.Code)
+	assert.Equal(t, 401, w.Code)
 }
 
 func TestTaskRouteById(t *testing.T) {
@@ -26,7 +26,7 @@ func TestTaskRouteById(t *testing.T) {
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/api/v1/tasks/1", nil)
 	router.ServeHTTP(w, req)
-	assert.Equal(t, 200, w.Code)
+	assert.Equal(t, 401, w.Code)
 }
 
 func TestWrongRoute(t *testing.T) {

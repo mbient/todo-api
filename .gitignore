@@ -1,7 +1,8 @@
-*.exe
-*.test
-*.out
 *.db
+*.env
+*.exe
 *.log
-*.tmp
+*.out
 *.swp
+*.test
+*.tmp
