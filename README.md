@@ -40,9 +40,14 @@ TOKEN=$(curl -s -X POST \
 localhost:8080/api/v1/login | jq -r '.token')
 
 # get protected site
+curl -s -X GET \
+-H "Authorization: Bearer $TOKEN" \
+localhost:8080/api/v1/tasks | jq
+
 curl -s -X POST \
 -H "Authorization: Bearer $TOKEN" \
-localhost:8080/api/v1/protected | jq
+--json '{"Title":"Filtering and sorting", "Description":"Implement filtering and sorting for the todo-api"}' \
+localhost:8080/api/v1/tasks | jq
 
 ```
 

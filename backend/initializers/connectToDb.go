@@ -9,7 +9,9 @@ import (
 var DB *gorm.DB
 
 func ConnectToDb() {
-	db, err := gorm.Open(sqlite.Open("todo-list.db"), &gorm.Config{})
+	// Changed to in memory db for development
+	db, err := gorm.Open(sqlite.Open("file::memory:?cache=shared"), &gorm.Config{})
+	//db, err := gorm.Open(sqlite.Open("todo-list.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
