@@ -8,7 +8,7 @@ This is a simple backend for a todo application with user authentication.
 
 ```bash
 git clone https://github.com/mbient/todo-api.git
-cd todo-api/backend/
+cd todo-api/
 ```
 
 ### Create `.env` file with following content
@@ -23,7 +23,7 @@ EOF
 ## Run server
 
 ```bash
-go run main.go
+go run cmd/backend/main.go
 ```
 
 ## Create new user and login
