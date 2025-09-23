@@ -71,8 +71,10 @@ func LogIn(c *gin.Context) {
 		return
 	}
 	//return token
-	c.JSON(http.StatusOK, gin.H{"token": tokenString})
-	//c.JSON(http.StatusOK, gin.H{"success": "user logged in"})
+	//c.JSON(http.StatusOK, gin.H{"token": tokenString})
+	c.SetSameSite(http.SameSiteLaxMode)
+	c.SetCookie("token", tokenString, 600, "", "", false, true) // 1o min
+	c.JSON(http.StatusOK, gin.H{"success": "user logged in"})
 }
 
 func LogOut(c *gin.Context) {

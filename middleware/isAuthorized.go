@@ -11,13 +11,15 @@ func JWTAuthMiddleware() gin.HandlerFunc {
 		// Extract the JWT token, validate it, and identify the user
 		// If valid, call c.Next()
 		// If invalid, call c.AbortWithStatusJSON(http.StatusUnauthorized)
-		tokenString, err := utils.ExtractTokenFromHeader(c)
+		//tokenString, err := utils.ExtractTokenFromHeader(c)
+		cookie, err := c.Cookie("token")
+
 		if err != nil {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
 			c.Abort()
 			return
 		}
-		claims, err := utils.ValidateToken(tokenString)
+		claims, err := utils.ValidateToken(cookie)
 		if err != nil {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
 			c.Abort()

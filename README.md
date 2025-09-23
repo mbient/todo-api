@@ -30,24 +30,16 @@ go run cmd/backend/main.go
 
 ```bash
 # register
-curl -s -X POST \
---json '{"Name":"John Doe", "Email":"john@doe.com", "Password":"password"}' \
-localhost:8080/api/v1/register | jq
+curl -s -X POST --json '{"Name":"John Doe", "Email":"john@doe.com", "Password":"password"}' localhost:8080/api/v1/register | jq
 
-# login and get token
-TOKEN=$(curl -s -X POST \
---json '{"Email":"john@doe.com", "Password":"password"}' \
-localhost:8080/api/v1/login | jq -r '.token')
+# login get cookie
+curl -c cookiefile -X POST --json '{"Email":"john@doe.com", "Password":"password"}' localhost:8080/api/v1/login
 
-# get protected site
-curl -s -X GET \
--H "Authorization: Bearer $TOKEN" \
-localhost:8080/api/v1/tasks | jq
+# check protected endpoint without cookie
+curl -s -X GET localhost:8080/api/v1/tasks | jq
 
-curl -s -X POST \
--H "Authorization: Bearer $TOKEN" \
---json '{"Title":"Filtering and sorting", "Description":"Implement filtering and sorting for the todo-api"}' \
-localhost:8080/api/v1/tasks | jq
+# check endpoints with cookie
+curl -b cookiefile -X GET localhost:8080/api/v1/tasks | jq
 
 ```
 
