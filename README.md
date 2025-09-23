@@ -33,7 +33,7 @@ go run cmd/backend/main.go
 curl -s -X POST --json '{"Name":"John Doe", "Email":"john@doe.com", "Password":"password"}' localhost:8080/api/v1/register | jq
 
 # login get cookie
-curl -c cookiefile -X POST --json '{"Email":"john@doe.com", "Password":"password"}' localhost:8080/api/v1/login
+curl -c cookiefile -X POST --json '{"Email":"john@doe.com", "Password":"password"}' localhost:8080/api/v1/login | jq
 
 # check protected endpoint without cookie
 curl -s -X GET localhost:8080/api/v1/tasks | jq

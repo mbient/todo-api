@@ -78,7 +78,8 @@ func LogIn(c *gin.Context) {
 }
 
 func LogOut(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "LogOut Called"})
+	c.SetCookie("token", "", -1, "", "", false, true)
+	c.JSON(http.StatusOK, gin.H{"message": "user logged out"})
 }
 
 func Protected(c *gin.Context) {
