@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/mbient/todo-api/utils"
+	"github.com/mbient/todo-api/internal/utils"
 	"net/http"
 )
 

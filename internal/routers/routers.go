@@ -2,8 +2,8 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/mbient/todo-api/controllers"
-	"github.com/mbient/todo-api/middleware"
+	"github.com/mbient/todo-api/internal/controllers"
+	"github.com/mbient/todo-api/internal/middleware"
 )
 
 func TaskRouter() *gin.Engine {
@@ -27,6 +27,5 @@ func TaskRouter() *gin.Engine {
 			v1.POST("/protected", controllers.Protected)
 		}
 	}
-
 	return router
 }

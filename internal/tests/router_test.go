@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/mbient/todo-api/routers"
+	"github.com/mbient/todo-api/internal/routers"
 	"github.com/stretchr/testify/assert"
 )
 

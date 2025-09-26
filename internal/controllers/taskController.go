@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/mbient/todo-api/initializers"
-	"github.com/mbient/todo-api/models"
+	"github.com/mbient/todo-api/internal/initializers"
+	"github.com/mbient/todo-api/internal/models"
 )
 
 type CreateTaskInput struct {

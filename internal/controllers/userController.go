@@ -2,9 +2,9 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/mbient/todo-api/initializers"
-	"github.com/mbient/todo-api/models"
-	"github.com/mbient/todo-api/utils"
+	"github.com/mbient/todo-api/internal/initializers"
+	"github.com/mbient/todo-api/internal/models"
+	"github.com/mbient/todo-api/internal/utils"
 
 	"fmt"
 	"net/http"

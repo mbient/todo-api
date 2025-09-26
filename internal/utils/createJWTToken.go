@@ -2,7 +2,7 @@ package utils
 
 import (
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/mbient/todo-api/models"
+	"github.com/mbient/todo-api/internal/models"
 
 	"os"
 	"time"

@@ -1,7 +1,7 @@
 package initializers
 
 import (
-	"github.com/mbient/todo-api/models"
+	"github.com/mbient/todo-api/internal/models"
 )
 
 func SyncDb() {

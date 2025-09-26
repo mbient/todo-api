@@ -2,7 +2,7 @@ package utils
 
 import (
 	"fmt"
-	"github.com/mbient/todo-api/models"
+	"github.com/mbient/todo-api/internal/models"
 	"os"
 	"strings"
 

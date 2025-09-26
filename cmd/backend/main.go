@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/mbient/todo-api/initializers"
-	"github.com/mbient/todo-api/routers"
+	"github.com/mbient/todo-api/internal/initializers"
+	"github.com/mbient/todo-api/internal/routers"
 )
 
 func init() {
